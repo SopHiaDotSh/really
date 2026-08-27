@@ -1,0 +1,94 @@
+######### ECHO AND COMM
+
+# This is a comment!
+echo Hello World        
+# This is a comment, too!
+
+######### CHMOD AND RUN
+
+$ chmod 755 first.sh
+$ ./first.sh
+Hello World
+$
+
+######### VARS 1 2
+MY_MESSAGE="Hello World"
+echo $MY_MESSAGE
+
+foo=sun
+echo $fooshine     # $fooshine is undefined
+echo ${foo}shine   # displays the word "sunshine"
+
+###
+
+MY_MESSAGE="Hello World" 
+MY_SHORT_MESSAGE=hi 
+MY_NUMBER=1 
+MY_PI=3.142 
+MY_OTHER_PI="3.142" 
+MY_MIXED=123abc
+
+######### READ AND TOUC
+
+echo "What is your name?"
+read USER_NAME
+echo "Hello $USER_NAME"
+echo "I will create you a file called ${USER_NAME}_file"
+touch "${USER_NAME}_file"
+
+######## LOOP
+
+for i in 1 2 3 4 5
+do
+  echo "Looping ... number $i"
+done
+
+######## WHILE AND CASE
+
+while read input_text
+do
+  case $input_text in
+        hello)          echo English    ;;
+        howdy)          echo American   ;;
+        gday)           echo Australian ;;
+        bonjour)        echo French     ;;
+        "guten tag")    echo German     ;;
+        *)              echo Unknown Language: $input_text
+                ;;
+   esac
+done < myfile.txt
+
+######## IF ELIF ELSE FI
+
+if  [ something ]; then
+ echo "Something"
+ elif [ something_else ]; then
+   echo "Something else"
+ else
+   echo "None of the above"
+fi
+
+######## muda texto de um txt (eu descobri sozinha hehehehe)
+
+#ó momento explicação em
+#o arquivo é o nome do arquivo (ele precisa estar na mesma pasta, senão eu preciso usar um cd B) )
+#a linha é a linha
+#e o novo_texto é a substituição total da linha
+arquivo="meuarquivo.txt"
+linha=3
+novo_texto="Este é o novo conteúdo da linha 3"
+
+# Substitui a linha 3 pelo novo texto
+sed -i "${linha}s/.*/${novo_texto}/" "$arquivo"
+
+######## Ver se arquivo existe (eu tbm tive q descobri sozinha)
+
+#esse comando é facil de ler, mas é bom lembrar que se eu quiser ver
+#um arquivo de outra pasta é só usar cd
+
+if [ -e "$arquivo" ]; 
+	echo "O arquivo existe.";
+else
+	echo "O arquivo não existe.";
+fi
+
