@@ -1,4 +1,4 @@
-######### ECHO AND COMM
+########## ECHO AND COMM
 
 # This is a comment!
 echo Hello World        
